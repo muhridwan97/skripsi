@@ -8,6 +8,8 @@ class BlogModel extends App_Model
 
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_INACTIVE = 'INACTIVE';
+    const STATUS_REJECTED = 'REJECTED';
+    const STATUS_PENDING = 'PENDING';
 
     public function __construct()
     {
@@ -29,11 +31,13 @@ class BlogModel extends App_Model
         $baseQuery = $this->db->select([
             $this->table . '.*',
             'user.name AS writer_name',
-            'ref_categories.category'
+            'ref_categories.category',
+            'COUNT(DISTINCT ref_categories.id) AS total_category',
         ])
             ->from($this->table)
             ->join($this->tableUser . ' as user', 'user.id = ' . $this->table . '.writed_by', 'left')
-            ->join('ref_categories','ref_categories.id = '. $this->table . '.id_category', 'left');
+            ->join('ref_categories','ref_categories.id = '. $this->table . '.id_category', 'left')
+            ->group_by('blogs.id');
 
         return $baseQuery;
     }

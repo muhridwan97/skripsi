@@ -43,8 +43,11 @@ class Landing extends App_Controller
 	{
 		$banners = $this->banner->getAll(['sort_by' => 'id']);
         $agendas = $this->agenda->getAll(['sort_by' => 'date', 'limit' => 7]);
+		$newPosts = $this->blog->getAll([
+			'limit' => 5
+		  ]);
 
-		$this->render('landing/index', compact('banners', 'agendas'));
+		$this->render('landing/index', compact('banners', 'agendas', 'newPosts'));
 	}
 
 	public function page($id)

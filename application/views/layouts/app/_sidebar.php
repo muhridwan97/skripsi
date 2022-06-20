@@ -112,29 +112,11 @@ $segment3 = $this->uri->segment(3);
 		</li>		
 		<?php endif; ?>
 
-		<?php if (AuthorizationModel::isAuthorized(PERMISSION_BANNER_VIEW)) : ?>
-		<li class="nav-item<?= $segment1 == 'banner' ? ' active' : '' ?>">
-			<a class="nav-link" href="<?= base_url('/banner') ?>">
-				<i class="mdi mdi-satellite menu-icon"></i>
-				<span class="menu-title">Banner</span>
-			</a>
-		</li>		
-		<?php endif; ?>
-
 		<?php if (AuthorizationModel::isAuthorized(PERMISSION_BLOG_VIEW)) : ?>
 		<li class="nav-item<?= $segment1 == 'blog' ? ' active' : '' ?>">
 			<a class="nav-link" href="<?= base_url('/blog') ?>">
 				<i class="mdi mdi-blogger menu-icon"></i>
 				<span class="menu-title">Blog</span>
-			</a>
-		</li>		
-		<?php endif; ?>
-
-		<?php if (AuthorizationModel::isAuthorized(PERMISSION_AGENDA_VIEW)) : ?>
-		<li class="nav-item<?= $segment1 == 'agenda' ? ' active' : '' ?>">
-			<a class="nav-link" href="<?= base_url('/agenda') ?>">
-				<i class="mdi mdi-view-agenda menu-icon"></i>
-				<span class="menu-title">Agenda</span>
 			</a>
 		</li>		
 		<?php endif; ?>
