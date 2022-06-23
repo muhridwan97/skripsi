@@ -95,11 +95,13 @@
 
           </ul>
           <ul class="nav navbar-nav navbar-right menu-nav-bottom nav-log-search">
-            <li><a href="#" id="login-navbar" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" style="margin-right:5px"></span> Login</a></li>
-
-
-
-
+            <li><a href="<?= base_url('dashboard') ?>" id="login-navbar"><span class="glyphicon glyphicon-log-in" style="margin-right:5px"></span> 
+	          <?php if(UserModel::loginData('id', '-1') != '-1'): ?>
+              Dashboard
+            <?php else: ?>
+              Login
+            <?php endif; ?>
+              </a></li>
           </ul>
         </div>
       </div>

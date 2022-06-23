@@ -13,8 +13,13 @@
 
 	<?php foreach ($data as $row) : ?>
 		<div class="panel-post-wrap">
-			<div class="col-sm-4 img-list-posts-wrap">
-				<img src="<?= asset_url($row['photo']) ?>" class="img-responsive img-list-posts" />
+			<div class="custom-entry" style="margin-right:25px">
+				<div class="entry-month">
+				<?= format_date($row['date'], 'F') ?> </div>
+				<div class="entry-date">
+				<?= format_date($row['date'], 'd') ?>  </div>
+				<div class="entry-month">
+				<?= format_date($row['date'], 'Y') ?>  </div>
 			</div>
 			<div class="col-sm-8">
 				<h3 class="title-isi-list-posts"><a href="<?= base_url('/landing/blog-view/' . $row['id']) ?>"><?= $row['title'] ?></a></h3>
